@@ -1,0 +1,798 @@
+[
+ {
+  "id": "two_sum",
+  "signature": "def two_sum(nums: list[int], target: int) -> list[int]:",
+  "statement": "Return the indices of the two numbers that add up to target, in increasing order. Exactly one solution exists. len(nums) up to 10^5.",
+  "tests": [
+   {
+    "args": [
+     [
+      2,
+      7,
+      11,
+      15
+     ],
+     9
+    ],
+    "expected": [
+     0,
+     1
+    ]
+   },
+   {
+    "args": [
+     [
+      3,
+      3
+     ],
+     6
+    ],
+    "expected": [
+     0,
+     1
+    ]
+   },
+   {
+    "args": [
+     [
+      -1,
+      -2,
+      -3,
+      -4,
+      -5
+     ],
+     -8
+    ],
+    "expected": [
+     2,
+     4
+    ]
+   },
+   {
+    "args_expr": "[list(range(100000)), 199997]",
+    "expected": [
+     99998,
+     99999
+    ],
+    "note": "performance"
+   }
+  ]
+ },
+ {
+  "id": "max_subarray",
+  "signature": "def max_subarray(nums: list[int]) -> int:",
+  "statement": "Return the largest sum of a non-empty contiguous subarray. len(nums) up to 10^5.",
+  "tests": [
+   {
+    "args": [
+     [
+      -2,
+      1,
+      -3,
+      4,
+      -1,
+      2,
+      1,
+      -5,
+      4
+     ]
+    ],
+    "expected": 6
+   },
+   {
+    "args": [
+     [
+      -3,
+      -1,
+      -2
+     ]
+    ],
+    "expected": -1,
+    "note": "all negative"
+   },
+   {
+    "args": [
+     [
+      5
+     ]
+    ],
+    "expected": 5
+   },
+   {
+    "args_expr": "[[1]*100000]",
+    "expected": 100000,
+    "note": "performance"
+   }
+  ]
+ },
+ {
+  "id": "valid_parentheses",
+  "signature": "def valid_parentheses(s: str) -> bool:",
+  "statement": "Return True if the brackets ()[]{} in s are correctly matched and nested.",
+  "tests": [
+   {
+    "args": [
+     "()[]{}"
+    ],
+    "expected": true
+   },
+   {
+    "args": [
+     "(]"
+    ],
+    "expected": false
+   },
+   {
+    "args": [
+     ""
+    ],
+    "expected": true,
+    "note": "empty"
+   },
+   {
+    "args": [
+     "(("
+    ],
+    "expected": false
+   },
+   {
+    "args": [
+     "([)]"
+    ],
+    "expected": false
+   },
+   {
+    "args": [
+     "]"
+    ],
+    "expected": false,
+    "note": "close first"
+   }
+  ]
+ },
+ {
+  "id": "binary_search",
+  "signature": "def binary_search(nums: list[int], target: int) -> int:",
+  "statement": "nums is sorted ascending with distinct values. Return the index of target or -1.",
+  "tests": [
+   {
+    "args": [
+     [
+      1,
+      3,
+      5,
+      7
+     ],
+     7
+    ],
+    "expected": 3
+   },
+   {
+    "args": [
+     [
+      1,
+      3,
+      5,
+      7
+     ],
+     0
+    ],
+    "expected": -1
+   },
+   {
+    "args": [
+     [],
+     3
+    ],
+    "expected": -1,
+    "note": "empty"
+   },
+   {
+    "args": [
+     [
+      2
+     ],
+     2
+    ],
+    "expected": 0
+   }
+  ]
+ },
+ {
+  "id": "merge_intervals",
+  "signature": "def merge_intervals(intervals: list[list[int]]) -> list[list[int]]:",
+  "statement": "Merge all overlapping intervals (touching ones like [1,4],[4,5] count as overlapping). Return them sorted by start.",
+  "tests": [
+   {
+    "args": [
+     [
+      [
+       1,
+       3
+      ],
+      [
+       2,
+       6
+      ],
+      [
+       8,
+       10
+      ],
+      [
+       15,
+       18
+      ]
+     ]
+    ],
+    "expected": [
+     [
+      1,
+      6
+     ],
+     [
+      8,
+      10
+     ],
+     [
+      15,
+      18
+     ]
+    ]
+   },
+   {
+    "args": [
+     [
+      [
+       1,
+       4
+      ],
+      [
+       4,
+       5
+      ]
+     ]
+    ],
+    "expected": [
+     [
+      1,
+      5
+     ]
+    ],
+    "note": "touching"
+   },
+   {
+    "args": [
+     [
+      [
+       1,
+       4
+      ],
+      [
+       0,
+       4
+      ]
+     ]
+    ],
+    "expected": [
+     [
+      0,
+      4
+     ]
+    ],
+    "note": "unsorted input"
+   },
+   {
+    "args": [
+     [
+      [
+       1,
+       10
+      ],
+      [
+       2,
+       3
+      ]
+     ]
+    ],
+    "expected": [
+     [
+      1,
+      10
+     ]
+    ],
+    "note": "contained"
+   },
+   {
+    "args": [
+     []
+    ],
+    "expected": []
+   }
+  ]
+ },
+ {
+  "id": "longest_unique_substring",
+  "signature": "def longest_unique_substring(s: str) -> int:",
+  "statement": "Return the length of the longest substring without repeating characters.",
+  "tests": [
+   {
+    "args": [
+     "abcabcbb"
+    ],
+    "expected": 3
+   },
+   {
+    "args": [
+     "bbbbb"
+    ],
+    "expected": 1
+   },
+   {
+    "args": [
+     ""
+    ],
+    "expected": 0
+   },
+   {
+    "args": [
+     " "
+    ],
+    "expected": 1
+   },
+   {
+    "args": [
+     "dvdf"
+    ],
+    "expected": 3
+   },
+   {
+    "args": [
+     "abba"
+    ],
+    "expected": 2,
+    "note": "window jump back"
+   }
+  ]
+ },
+ {
+  "id": "climb_stairs",
+  "signature": "def climb_stairs(n: int) -> int:",
+  "statement": "You can climb 1 or 2 steps at a time. Return the number of distinct ways to reach step n (1 <= n <= 45).",
+  "tests": [
+   {
+    "args": [
+     1
+    ],
+    "expected": 1
+   },
+   {
+    "args": [
+     2
+    ],
+    "expected": 2
+   },
+   {
+    "args": [
+     5
+    ],
+    "expected": 8
+   },
+   {
+    "args": [
+     45
+    ],
+    "expected": 1836311903,
+    "note": "performance"
+   }
+  ]
+ },
+ {
+  "id": "kth_largest",
+  "signature": "def kth_largest(nums: list[int], k: int) -> int:",
+  "statement": "Return the kth largest element (counting duplicates).",
+  "tests": [
+   {
+    "args": [
+     [
+      3,
+      2,
+      1,
+      5,
+      6,
+      4
+     ],
+     2
+    ],
+    "expected": 5
+   },
+   {
+    "args": [
+     [
+      3,
+      2,
+      3,
+      1,
+      2,
+      4,
+      5,
+      5,
+      6
+     ],
+     4
+    ],
+    "expected": 4,
+    "note": "duplicates"
+   },
+   {
+    "args": [
+     [
+      1
+     ],
+     1
+    ],
+    "expected": 1
+   }
+  ]
+ },
+ {
+  "id": "rotate_array",
+  "signature": "def rotate_array(nums: list[int], k: int) -> list[int]:",
+  "statement": "Return nums rotated to the right by k steps. k can be larger than len(nums).",
+  "tests": [
+   {
+    "args": [
+     [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+     ],
+     3
+    ],
+    "expected": [
+     5,
+     6,
+     7,
+     1,
+     2,
+     3,
+     4
+    ]
+   },
+   {
+    "args": [
+     [
+      1,
+      2
+     ],
+     5
+    ],
+    "expected": [
+     2,
+     1
+    ],
+    "note": "k > n"
+   },
+   {
+    "args": [
+     [],
+     3
+    ],
+    "expected": [],
+    "note": "empty (modulo by zero trap)"
+   },
+   {
+    "args": [
+     [
+      1
+     ],
+     0
+    ],
+    "expected": [
+     1
+    ]
+   }
+  ]
+ },
+ {
+  "id": "is_palindrome",
+  "signature": "def is_palindrome(s: str) -> bool:",
+  "statement": "Considering only letters and digits and ignoring case, return True if s is a palindrome.",
+  "tests": [
+   {
+    "args": [
+     "A man, a plan, a canal: Panama"
+    ],
+    "expected": true
+   },
+   {
+    "args": [
+     "race a car"
+    ],
+    "expected": false
+   },
+   {
+    "args": [
+     " "
+    ],
+    "expected": true
+   },
+   {
+    "args": [
+     "0P"
+    ],
+    "expected": false,
+    "note": "digit vs letter"
+   }
+  ]
+ },
+ {
+  "id": "coin_change",
+  "signature": "def coin_change(coins: list[int], amount: int) -> int:",
+  "statement": "Return the fewest coins needed to make amount (unlimited coins of each type), or -1 if impossible.",
+  "tests": [
+   {
+    "args": [
+     [
+      1,
+      2,
+      5
+     ],
+     11
+    ],
+    "expected": 3
+   },
+   {
+    "args": [
+     [
+      2
+     ],
+     3
+    ],
+    "expected": -1
+   },
+   {
+    "args": [
+     [
+      1
+     ],
+     0
+    ],
+    "expected": 0,
+    "note": "zero amount"
+   },
+   {
+    "args": [
+     [
+      186,
+      419,
+      83,
+      408
+     ],
+     6249
+    ],
+    "expected": 20,
+    "note": "greedy fails"
+   }
+  ]
+ },
+ {
+  "id": "product_except_self",
+  "signature": "def product_except_self(nums: list[int]) -> list[int]:",
+  "statement": "Return a list where element i is the product of all elements except nums[i]. Do not use division.",
+  "tests": [
+   {
+    "args": [
+     [
+      1,
+      2,
+      3,
+      4
+     ]
+    ],
+    "expected": [
+     24,
+     12,
+     8,
+     6
+    ]
+   },
+   {
+    "args": [
+     [
+      -1,
+      1,
+      0,
+      -3,
+      3
+     ]
+    ],
+    "expected": [
+     0,
+     0,
+     9,
+     0,
+     0
+    ],
+    "note": "one zero"
+   },
+   {
+    "args": [
+     [
+      0,
+      0
+     ]
+    ],
+    "expected": [
+     0,
+     0
+    ],
+    "note": "two zeros"
+   }
+  ]
+ },
+ {
+  "id": "lis_length",
+  "signature": "def lis_length(nums: list[int]) -> int:",
+  "statement": "Return the length of the longest strictly increasing subsequence. len(nums) up to 10^5, so O(n^2) is too slow.",
+  "tests": [
+   {
+    "args": [
+     [
+      10,
+      9,
+      2,
+      5,
+      3,
+      7,
+      101,
+      18
+     ]
+    ],
+    "expected": 4
+   },
+   {
+    "args": [
+     [
+      0,
+      1,
+      0,
+      3,
+      2,
+      3
+     ]
+    ],
+    "expected": 4
+   },
+   {
+    "args": [
+     [
+      7,
+      7,
+      7
+     ]
+    ],
+    "expected": 1,
+    "note": "strictly increasing"
+   },
+   {
+    "args": [
+     []
+    ],
+    "expected": 0
+   },
+   {
+    "args_expr": "[list(range(20000))]",
+    "expected": 20000,
+    "note": "performance"
+   }
+  ]
+ },
+ {
+  "id": "search_rotated",
+  "signature": "def search_rotated(nums: list[int], target: int) -> int:",
+  "statement": "nums is a sorted array of distinct values rotated at an unknown pivot. Return the index of target or -1 in O(log n).",
+  "tests": [
+   {
+    "args": [
+     [
+      4,
+      5,
+      6,
+      7,
+      0,
+      1,
+      2
+     ],
+     0
+    ],
+    "expected": 4
+   },
+   {
+    "args": [
+     [
+      4,
+      5,
+      6,
+      7,
+      0,
+      1,
+      2
+     ],
+     3
+    ],
+    "expected": -1
+   },
+   {
+    "args": [
+     [
+      1
+     ],
+     0
+    ],
+    "expected": -1
+   },
+   {
+    "args": [
+     [
+      3,
+      1
+     ],
+     1
+    ],
+    "expected": 1,
+    "note": "two elements"
+   }
+  ]
+ },
+ {
+  "id": "num_islands",
+  "signature": "def num_islands(grid: list[str]) -> int:",
+  "statement": "grid is a list of equal-length strings of '1' (land) and '0' (water). Count islands connected up/down/left/right.",
+  "tests": [
+   {
+    "args": [
+     [
+      "11110",
+      "11010",
+      "11000",
+      "00000"
+     ]
+    ],
+    "expected": 1
+   },
+   {
+    "args": [
+     [
+      "11000",
+      "11000",
+      "00100",
+      "00011"
+     ]
+    ],
+    "expected": 3
+   },
+   {
+    "args": [
+     []
+    ],
+    "expected": 0,
+    "note": "empty grid"
+   },
+   {
+    "args": [
+     [
+      "101",
+      "010",
+      "101"
+     ]
+    ],
+    "expected": 5,
+    "note": "no diagonals"
+   }
+  ]
+ }
+]
